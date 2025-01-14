@@ -1,0 +1,115 @@
+CUDA: true
+DATA:
+  BATCH_SIZE: 4
+  DATASET: ZipDataset
+  IN_SIZE: 256
+  NORMALIZE:
+    ENABLE: false
+    MEAN:
+    - 0.485
+    - 0.456
+    - 0.406
+    STD:
+    - 0.229
+    - 0.224
+    - 0.225
+  NUM_FRAMES: 1000
+  NUM_WORKERS: 4
+  ROOT_DIR: ''
+  SUB_DIR: ''
+  TARGET_DATA: datasets/oulu-npu_preprocessed/validation
+  TEST: ''
+  TEST_NF: 2
+  TRAIN: ''
+  TRAIN_NF: 1000
+  TRAIN_SRC_FAKE_1: datasets/oulu-npu_preprocessed/train
+  TRAIN_SRC_REAL_1: datasets/oulu-npu_preprocessed/train
+  VAL: ''
+  VAL_NF: 2
+DEBUG: false
+MODEL:
+  CHANNELS:
+    HSV: false
+    LAB: false
+    RGB: true
+    XYZ: false
+    YCRCB: false
+    YUV: false
+  IN_CHANNELS: 3
+  MEAN_STD_NORMAL: true
+  NUM_CLASSES: 2
+NORM_FLAG: true
+NOTES: ''
+OUTPUT_DIR: output/HFN_MP/CIO-M/NF2_align_InnerLoops4-11121729
+SEED: 666
+TEST:
+  CKPT: ''
+  MORE: false
+  NO_INFERENCE: false
+  NUM_FRAMES: 2
+  TAG: Default
+  THR: 0.5
+TRAIN:
+  AUG:
+    ColorJitter:
+      ENABLE: false
+      brightness: 0.25
+      contrast: 0.5
+      hue: 0
+      saturation: 0
+    RandomCrop:
+      ENABLE: false
+      size: 256
+    RandomErasing:
+      ENABLE: false
+      p: 0.5
+      ratio:
+      - 0.3
+      - 3.3
+      scale:
+      - 0.02
+      - 0.33
+    RandomHorizontalFlip:
+      ENABLE: true
+      p: 0.5
+    ShufflePatch:
+      ENABLE: false
+      p: 0.5
+      size: 32
+  BETAS:
+  - 0.9
+  - 0.999
+  DROPOUT: 0.0
+  EPOCHS: 200
+  IMAGENET_PRETRAIN: true
+  INIT_LR: 0.0001
+  INNER_LOOPS: 4
+  ITER_PER_EPOCH: 100
+  LR_EPOCH_1: 0
+  LR_EPOCH_2: 150
+  LR_PATIENCE: 0
+  LR_SCHEDULER:
+    CosineAnnealingLR:
+      T_max: 400
+      eta_min: 1.0e-06
+      last_epoch: -1
+    NAME: ''
+  MAX_ITER: 1000
+  META_LEARNING_RATE: 0.001
+  META_PRE_TRAIN: true
+  META_TEST_FREQ: 1
+  META_TRAIN_SIZE: 2
+  MOMENTUM: 0.9
+  NUM_FRAMES: 2
+  OPTIM: SGD
+  PATIENCE: 100
+  PRINT_FREQ: 1000
+  RESUME: ''
+  RETRAIN_FROM_SCATCH: true
+  SAVE_BEST: true
+  SYNC_TRAINING: false
+  VAL_FREQ: 2
+  WEIGHT_DECAY: 0.0
+  WEIGHT_DECAY_T: 0.0
+  W_depth: 10
+  W_metatest: 1
